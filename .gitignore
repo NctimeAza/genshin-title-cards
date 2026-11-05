@@ -1,0 +1,13 @@
+exports/
+tools/
+__pycache__/
+*.pyc
+*.log
+*.pid
+*.tmp
+*.partial*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.edge_profile*/

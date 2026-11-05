@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>原神剧情身份牌工作台</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css?v=1"></head>
+<body>
+<header><div><span class="eyebrow">GENSHIN / STORY TITLE CARDS</span><h1>原神剧情身份牌工作台</h1></div><span class="local-badge">本地运行 · 原始素材重放</span></header>
+<main>
+<section class="stage-panel">
+  <div class="stage-heading"><div><label for="scene">身份牌模板</label><select id="scene"></select></div><span id="ready" class="state">未就绪</span></div>
+  <div class="canvas-wrap"><canvas id="canvas" width="1920" height="1080"></canvas><div id="empty"><img id="reference" alt="身份牌原始画面参考" hidden><div class="empty-label"><strong>原始画面参考 · 动画待接入</strong><span>素材和播放参数核实后，模板才会开放动画预览与导出。</span></div></div></div>
+  <div class="transport"><button id="play" class="square" title="播放或暂停">▶</button><input id="timeline" type="range" min="0" max="6" step="0.001" value="0" aria-label="时间轴"><span id="time">0.00 / 0.00 s</span></div>
+  <p id="scene-note" class="note"></p>
+</section>
+<aside>
+  <section class="settings"><h2>文字与画面</h2><div id="text-fields"></div><label for="background">预览与 MP4 背景</label><select id="background"><option value="green">绿幕 #00FF00</option><option value="black">纯黑</option><option value="transparent">透明预览</option></select><p class="hint">透明 MOV 使用 ProRes 4444，保留半透明边缘。MP4 使用绿幕或黑底；PNG 背景在导出区单独选择。</p><label for="fps">导出帧率</label><select id="fps"><option value="30">30 fps</option><option value="60">60 fps</option></select><p id="fps-note" class="hint"></p><div class="resolution">1920 × 1080 <span>原速 · 固定逐帧渲染</span></div></section>
+  <section class="audio-settings"><h2>原音效</h2><label class="audio-toggle"><input id="include-audio" type="checkbox" checked> 预览和导出包含音效</label><label id="volume-label" for="volume">音效音量 100%</label><input id="volume" type="range" min="0" max="1" step="0.01" value="1"><p id="audio-note" class="hint"></p><button id="listen-audio">单独试听音效</button></section>
+  <section class="exports"><h2>导出</h2><button id="export" class="primary">导出绿幕 MP4</button><button id="export-mov">导出透明 MOV</button><label for="png-background">PNG 背景</label><select id="png-background"><option value="transparent">透明</option><option value="green">绿幕 #00FF00</option><option value="black">纯黑</option></select><button id="png">导出当前帧 PNG</button><button id="cancel" hidden>取消导出</button><progress id="progress" value="0" max="1" hidden></progress><p id="status" role="status">选择可用模板后即可导出。</p><a id="download" hidden>下载视频</a><div class="config-buttons"><button id="save">保存文字配置</button><label class="file-button">加载配置<input id="load" type="file" accept="application/json,.json" hidden></label></div></section>
+</aside>
+</main>
+<footer>素材来自本地游戏提取。重建使用原始参数，近似与未恢复部分会在模板说明中列出。</footer>
+<script type="module" src="app.js?v=1"></script>
+</body></html>
